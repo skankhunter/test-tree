@@ -1,0 +1,32 @@
+#root {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.list__root, .list__node {
+  list-style: none;
+}
+
+.node {
+  max-width: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.node:hover {
+  box-shadow: -1px 10px 5px -6px rgba(0,0,0,0.37);
+}
+
+.node p {
+  margin: 0;
+}
+
+.node__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
