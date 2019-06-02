@@ -1,26 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
 import './App.css';
+import TreeList from "./components/tree-list/tree-list.jsx";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      model: [
+        {
+          id: 1,
+          title: 'root-1',
+          children: [
+            {
+              id: 2,
+              title: 'element-1',
+              children: []
+            }
+          ]
+        },
+      ]
+    }
+  }
+
+  render() {
+    const {model} = this.state;
+
+    return (
+        <React.Fragment>
+          {model.map((item, i) => (
+              <TreeList
+                  key={i}
+                  item={item}
+              />
+              )
+          )}
+        </React.Fragment>
+    )
+  }
 }
 
 export default App;
