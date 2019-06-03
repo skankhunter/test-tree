@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Node from "../node/node";
 
 class TreeList extends Component {
     constructor(props) {
@@ -7,63 +8,61 @@ class TreeList extends Component {
         }
     }
     createList(root) {
-        const {onAddNode, onDeleteNode} = this.props;
+        const {onAddNode, onDeleteNode, onChange} = this.props;
         if (root.children.length > 0) {
             return (
                 <React.Fragment>
-                    <div className="node">
-                        {root.title + root.id}
-                        <div className="node__buttons">
-                            <button
-                                className="button button--add"
-                                onClick={() => onAddNode(root.id)}
-                            >
-                                Add
-                            </button>
-                            {root.root ? '' :
-                                <button
-                                    className="button button--remove"
-                                    onClick={() => onDeleteNode(root.id)}
-                                >
-                                    Remove
-                                </button>
-                            }
-                        </div>
-                    </div>
-                    <ul className="list__node">
-                        {root.children.map(item => (<li key={item.id}>{this.createList(item)} </li>))}
+                    <Node
+                        item={root}
+                        onAddNode={onAddNode}
+                        onDeleteNode={onDeleteNode}
+                        onChange={onChange}
+                    />
+                    <ul className="list list__inner">
+                        {root.children.map(item => (<React.Fragment key={item.id}>{this.createList(item)} </React.Fragment>))}
                     </ul>
                 </React.Fragment>
             );
         }
         else {
             return (
-                <div className="node">
-                    {root.title + root.id}
-                    <div className="node__buttons">
-                        <button
-                            className="button button--add"
-                            onClick={() => onAddNode(root.id)}
-                        >
-                            Add
-                        </button>
-                        <button
-                            className="button button--remove"
-                            onClick={() => onDeleteNode(root.id)}
-                        >
-                            Remove
-                        </button>
-                    </div>
-                </div>);
+                <Node
+                    item={root}
+                    onAddNode={onAddNode}
+                    onDeleteNode={onDeleteNode}
+                    onChange={onChange}
+                />
+            )
         }
     }
 
     render() {
-        const {item} = this.props;
+        const {
+            item,
+            onSaveModel,
+            onLoadModel,
+            onLoadFile,
+            onClearStorage
+        } = this.props;
         return (
-            <ul className="list list__root">
-                {this.createList(item)}
-            </ul>
+            <React.Fragment>
+                <ul className="list">
+                    {this.createList(item)}
+                </ul>
+                <div className="state">
+                    <div className="state__buttons">
+                        <button className="white-blue" onClick={() => onSaveModel()}>Save to localStorage</button>
+                        <button className="white-blue" onClick={() => onLoadModel()}>Load from localStorage</button>
+                        <button className="white-blue" onClick={() => onClearStorage()}>Clear localStorage</button>
+                    </div>
+                    <fieldset className="state__json-loader">
+                        <h2>Json File</h2>
+                        <input type='file' id='fileInput'/>
+                        <input type='button' value='Load' onClick={onLoadFile}/>
+                    </fieldset>
+                </div>
+
+            </React.Fragment>
         );
     }
 }

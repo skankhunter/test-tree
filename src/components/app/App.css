@@ -1,0 +1,106 @@
+#root {
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+}
+
+.node {
+  max-width: 200px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 15px;
+  transition: 0.2s;
+}
+
+.node:hover {
+   box-shadow: -1px 10px 5px -6px rgba(0,0,0,0.37);
+ }
+
+.node p {
+  margin: 0;
+}
+
+.node__buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.model {
+  display: flex;
+  justify-content: space-between;
+}
+
+.state {
+  padding-left: 40px;
+  margin-top: 15px;
+}
+
+.state__buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.state__json-loader {
+  margin: 0;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+}
+
+button.white-blue {
+  background: transparent;
+  color: #1172c4;
+  border-color: #1172c4;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 22px;
+  padding: 7px 20px;
+  transition: all 0.2s linear;
+}
+
+button.white-blue:hover {
+  color: white;
+  background: #1172c4;
+  border-color: white;
+  transition: all 0.2s linear;
+}
+
+.button__add, .button__remove {
+  background: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.button__add:hover, .button__remove:hover  {
+  color: white;
+  border-color: white;
+  transition: all 0.2s linear;
+}
+
+.button__add {
+   color: #69c479;
+   border-color:  #69c479;
+ }
+
+.button__add:hover {
+  background: #69c479;
+}
+
+.button__remove {
+  color: #c40c25;
+  border-color:  #c40c25;
+}
+
+.button__remove:hover {
+  background: #c40c25;
+}
