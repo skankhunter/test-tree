@@ -102,6 +102,7 @@ class App extends Component {
     const {model} = this.state;
     const savedModel = JSON.stringify(model);
     localStorage.setItem('model', savedModel);
+    alert('Model has been saved in storage')
   }
 
   loadStorage() {
@@ -133,13 +134,14 @@ class App extends Component {
       let lines = e.target.result;
       newModel = JSON.parse(lines);
       self.setState({
-        model: newModel
+        model: [newModel]
       })
     }
   }
 
   clearStorage() {
     localStorage.removeItem('model');
+    alert('Storage has been cleared')
   }
 
   render() {

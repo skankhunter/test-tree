@@ -1,1 +1,1 @@
-[{"id":1,"root":true,"title":"node-1","children":[{"id":2,"title":"node-2","children":[{"id":3,"title":"node-3","children":[{"id":4,"title":"node-4","children":[]}]},{"id":5,"title":"node-5","children":[]}]}]}]
+{"id":1,"root":true,"title":"node-1","children":[{"id":2, "title":"node-2","children":[{"id":3, "title":"node-3","children":[{"id":4,"title":"node-4","children":[]}]},{"id":5,"title":"node-5","children":[]}]}]}
